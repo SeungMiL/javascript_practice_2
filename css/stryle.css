@@ -26,6 +26,7 @@ body{
 
 .task-tabs div{
     padding: 1em;
+    cursor: pointer;
 }
 
 #under-line{
@@ -42,4 +43,10 @@ body{
     display: flex;
     justify-content: space-between;
     padding: 1em;
+    text-decoration: none;
+}
+
+
+.task-done{
+    text-decoration: line-through;
 }
