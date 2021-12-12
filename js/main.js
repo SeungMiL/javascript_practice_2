@@ -43,10 +43,10 @@ function addTask(){
 function render(){
     let list = [];
     if(mode == "all"){
-        list = taskList
+        list = taskList;
     } else if (mode == "ongoing" || mode == "done"){
         list = filterList;
-    } 
+    };
 
     let resultHTML = '';
     for(let i = 0; i<list.length; i++){
@@ -101,27 +101,28 @@ function deleteTask(id){
 
 function filter(event){
     mode = event.target.id;
-    let filterList = [];
+    filterList = [];
     if(mode == "all"){
         render();
     } else if (mode == "ongoing"){
-        for(let i = 0; i<taskList.length; i++){
+        for(let i = 0; i < taskList.length; i++){
             if(taskList[i].isComplete == false){
                 filterList.push(taskList[i]);
             }
         }
         render();
-    } else if (mode == "done"){
-        for(let i= 0; i<task.length; i++){
+    } else if(mode == "done"){
+        for(let i = 0; i < taskList.length; i++){
             if(taskList[i].isComplete == true){
-                filterList.push(taskList[i])
+                filterList.push(taskList[i]);
             }
         }
-        render();
-    }
-    
+        
+    } 
+    render();
 } 
 
+console.log(filterList);
 
 function randomIDGenerate(){
     return '_' + Math.random().toString(36).substr(2, 9);
