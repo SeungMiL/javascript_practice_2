@@ -13,6 +13,7 @@ let taskInput = document.getElementById("task-input");
 let addButton = document.getElementById("add-button");
 let taskList = [];
 let tabs = document.querySelectorAll(".task-tabs div");
+let underLine = document.getElementById("under-line")
 let mode = "all";
 let filterList = [];
 
@@ -100,7 +101,12 @@ function deleteTask(id){
 
 
 function filter(event){
+    if(event){
     mode = event.target.id;
+    underLine.style.width = event.target.offsetWidth + "px";
+    underLine.style.left = event.target.offsetLeft + "px";
+    underLine.style.top = event.target.offsetTop + (event.target.offsetHeight - 4) + "px";
+    }
     filterList = [];
     if(mode == "all"){
         render();
